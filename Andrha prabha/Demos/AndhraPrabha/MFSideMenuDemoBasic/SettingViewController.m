@@ -15,10 +15,14 @@
 
 @implementation SettingViewController
 @synthesize settingsTableView,manageCategories,subManageCategories;
+@synthesize secondTV;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self UIViewOfSecondTableView];
     settingsTableView.delegate=self;
     settingsTableView.dataSource=self;
+    secondTV.delegate=self;
+    secondTV.dataSource=self;
     
     manageCategories=[[NSMutableArray alloc]init];
     subManageCategories=[[NSMutableArray alloc]init];
@@ -38,31 +42,65 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)UIViewOfSecondTableView
+{
+    secondTV=[[UITableView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x+70, self.view.frame.origin.y+90,200, self.view.frame.size.height-120)];
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    UITableViewCell * cell=[[UITableViewCell alloc]init];
+    if (tableView==settingsTableView) {
+        NSString *CellIdentifier = @"Cell";
         
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            
+        }
+        cell.backgroundColor=[UIColor clearColor];
+        
+        cell.textLabel.text=[manageCategories objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text=[subManageCategories objectAtIndex:indexPath.row];
+        
+        return cell;
     }
-    cell.backgroundColor=[UIColor clearColor];
-    
-    cell.textLabel.text=[manageCategories objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text=[subManageCategories objectAtIndex:indexPath.row];
-    
-    return cell;
+    if (tableView==secondTV) {
+        NSString *CellIdentifier = @"Cell1";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            
+        }
+        cell.backgroundColor=[UIColor blackColor];
+        cell.textLabel.text=[NSString stringWithFormat:@"Row %i",indexPath.row];
+        return cell;
+        
+
+    }
+    else return cell;
+   
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView==settingsTableView) {
+        return  manageCategories.count;
+
+    }
+    if (tableView==secondTV) {
+        return 10;
+    }
+    else return 1;
     
-   return  manageCategories.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -103,7 +141,12 @@
         [self setupMenuBarButtonItems];
     }];
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.view addSubview:secondTV];
 
+
+}
 
 /*
 #pragma mark - Navigation

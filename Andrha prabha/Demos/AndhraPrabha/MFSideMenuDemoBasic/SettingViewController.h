@@ -13,6 +13,6 @@
 @property (nonatomic,strong) IBOutlet UITableView * settingsTableView;
 @property (atomic,retain)       NSMutableArray  * manageCategories;
 @property (atomic,retain)       NSMutableArray  * subManageCategories;
-
+@property (nonatomic,strong)    UITableView * secondTV;
 
 @end

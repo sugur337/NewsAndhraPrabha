@@ -147,17 +147,14 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell * cell =[[UITableViewCell alloc]init];
-//    if (tableView==settingsTableView) {
-//
-//        if (indexPath.row==0 || indexPath.row==1 || indexPath.row==5) {
-//            [self.view addSubview:secondTV];
-//
-//        }
-//        else if (indexPath.row==2 || indexPath.row==3 || indexPath.row==4) {
-//            secondTV.hidden=YES;
-//        }
-//    }
+    if (tableView==settingsTableView) {
+      if (indexPath.row==0 || indexPath.row==1 || indexPath.row==5) {
+            [self.view addSubview:secondTV];
+}
+        else if (indexPath.row==2 || indexPath.row==3 || indexPath.row==4) {
+            secondTV.hidden=YES;
+        }
+    }
     if (indexPath.row==4) {
         NSUInteger index = [[tableView indexPathsForVisibleRows] indexOfObject:indexPath];
         
@@ -170,18 +167,6 @@
             }
         }
     }
-  
-   
-}
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row==4) {
-        NSUInteger index = [[tableView indexPathsForVisibleRows] indexOfObject:indexPath];
-        if (index != NSNotFound) {
-            UITableViewCell *cell = [[tableView visibleCells] objectAtIndex:index];
-            [cell setAccessoryType:UITableViewCellAccessoryNone];
-        }
-    }
-  
 }
 /*
 #pragma mark - Navigation

@@ -42,6 +42,9 @@
 		8431F7BF1ADBF38F0094DE60 /* InnerBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F7BE1ADBF38F0094DE60 /* InnerBody.m */; };
 		84325C071B08A69B008EC02E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C051B08A69B008EC02E /* SettingViewController.m */; };
 		84325C081B08A69B008EC02E /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C061B08A69B008EC02E /* SettingViewController.xib */; };
+		84325C0C1B0A0320008EC02E /* ManageConstitutionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C0A1B0A0320008EC02E /* ManageConstitutionsVC.m */; };
+		84325C0D1B0A0320008EC02E /* ManageConstitutionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C0B1B0A0320008EC02E /* ManageConstitutionsVC.xib */; };
+		84325C101B0A0528008EC02E /* M13Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C0F1B0A0528008EC02E /* M13Checkbox.m */; };
 		8436FDB01B03834800093F1E /* BuildMenuTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436FDAF1B03834800093F1E /* BuildMenuTree.m */; };
 		84477B251AD7D9F5001E1575 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275F15AA1517EED80052A240 /* DemoViewController.xib */; };
 		84477B2C1AD7E618001E1575 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84477B2B1AD7E618001E1575 /* NewsTableViewCell.xib */; };
@@ -130,6 +133,11 @@
 		84325C041B08A69B008EC02E /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		84325C051B08A69B008EC02E /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		84325C061B08A69B008EC02E /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		84325C091B0A0320008EC02E /* ManageConstitutionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageConstitutionsVC.h; sourceTree = "<group>"; };
+		84325C0A1B0A0320008EC02E /* ManageConstitutionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageConstitutionsVC.m; sourceTree = "<group>"; };
+		84325C0B1B0A0320008EC02E /* ManageConstitutionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageConstitutionsVC.xib; sourceTree = "<group>"; };
+		84325C0E1B0A0528008EC02E /* M13Checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13Checkbox.h; sourceTree = "<group>"; };
+		84325C0F1B0A0528008EC02E /* M13Checkbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13Checkbox.m; sourceTree = "<group>"; };
 		8436FDAE1B03834800093F1E /* BuildMenuTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildMenuTree.h; sourceTree = "<group>"; };
 		8436FDAF1B03834800093F1E /* BuildMenuTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildMenuTree.m; sourceTree = "<group>"; };
 		84477B2B1AD7E618001E1575 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -268,6 +276,9 @@
 				84325C041B08A69B008EC02E /* SettingViewController.h */,
 				84325C051B08A69B008EC02E /* SettingViewController.m */,
 				84325C061B08A69B008EC02E /* SettingViewController.xib */,
+				84325C091B0A0320008EC02E /* ManageConstitutionsVC.h */,
+				84325C0A1B0A0320008EC02E /* ManageConstitutionsVC.m */,
+				84325C0B1B0A0320008EC02E /* ManageConstitutionsVC.xib */,
 				8431F7BC1ADBF3410094DE60 /* Utilities */,
 				275F158E1517E9B80052A240 /* Supporting Files */,
 				273D0F8716CB344600C187E0 /* Images */,
@@ -290,6 +301,8 @@
 		8424086D1AF7402B0084BF92 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				84325C0E1B0A0528008EC02E /* M13Checkbox.h */,
+				84325C0F1B0A0528008EC02E /* M13Checkbox.m */,
 				8424088A1AF740440084BF92 /* SVPullToRefresh */,
 				8424086E1AF7402B0084BF92 /* AFHTTPRequestOperation.h */,
 				8424086F1AF7402B0084BF92 /* AFHTTPRequestOperation.m */,
@@ -415,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84477B251AD7D9F5001E1575 /* DemoViewController.xib in Resources */,
+				84325C0D1B0A0320008EC02E /* ManageConstitutionsVC.xib in Resources */,
 				844D74F71B0094DF004C710F /* Default-568h@2x.png in Resources */,
 				275F15921517E9B80052A240 /* InfoPlist.strings in Resources */,
 				844BF6751AE1612500676130 /* Images.xcassets in Resources */,
@@ -452,12 +466,14 @@
 				274419CD17BBAED20007ADE7 /* MFSideMenuShadow.m in Sources */,
 				842FE7151ADD0DFF00D3A899 /* MainBodyViewController.m in Sources */,
 				842408891AF7402B0084BF92 /* AFURLSessionManager.m in Sources */,
+				84325C0C1B0A0320008EC02E /* ManageConstitutionsVC.m in Sources */,
 				275F15941517E9B80052A240 /* main.m in Sources */,
 				842408861AF7402B0084BF92 /* AFURLConnectionOperation.m in Sources */,
 				842408821AF7402B0084BF92 /* AFHTTPRequestOperationManager.m in Sources */,
 				8436FDB01B03834800093F1E /* BuildMenuTree.m in Sources */,
 				842F2E001AD84F0500D405FE /* MenuItem.m in Sources */,
 				842408841AF7402B0084BF92 /* AFNetworkReachabilityManager.m in Sources */,
+				84325C101B0A0528008EC02E /* M13Checkbox.m in Sources */,
 				8431F7BF1ADBF38F0094DE60 /* InnerBody.m in Sources */,
 				275F15981517E9B80052A240 /* MFAppDelegate.m in Sources */,
 				842408911AF740440084BF92 /* UIScrollView+SVPullToRefresh.m in Sources */,

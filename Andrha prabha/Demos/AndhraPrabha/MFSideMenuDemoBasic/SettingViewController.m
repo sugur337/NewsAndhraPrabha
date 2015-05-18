@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "MFSideMenu.h"
+#import "ManageConstitutionsVC.h"
 
 @interface SettingViewController ()
 
@@ -45,6 +46,8 @@
 -(void)UIViewOfSecondTableView
 {
     secondTV=[[UITableView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x+70, self.view.frame.origin.y+90,200, self.view.frame.size.height-120)];
+    secondTV.hidden=YES;
+    [self.view addSubview:secondTV];
     
 }
 
@@ -148,12 +151,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==settingsTableView) {
-      if (indexPath.row==0 || indexPath.row==1 || indexPath.row==5) {
-            [self.view addSubview:secondTV];
-}
-        else if (indexPath.row==2 || indexPath.row==3 || indexPath.row==4) {
-            secondTV.hidden=YES;
+        if (indexPath.row==2) {
+            ManageConstitutionsVC * manage =[[ManageConstitutionsVC alloc]init];
+            [self.navigationController pushViewController:manage animated:YES];
         }
+        
+      if (indexPath.row==0 || indexPath.row==1 || indexPath.row==5) {
+          secondTV.hidden=NO;
+      }
+      else secondTV.hidden=YES;
     }
     if (indexPath.row==4) {
         NSUInteger index = [[tableView indexPathsForVisibleRows] indexOfObject:indexPath];

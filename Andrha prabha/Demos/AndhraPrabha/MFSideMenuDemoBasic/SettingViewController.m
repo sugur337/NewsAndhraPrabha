@@ -65,6 +65,9 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
             
         }
+        if (indexPath.row==4) {
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        }
         cell.backgroundColor=[UIColor clearColor];
         
         cell.textLabel.text=[manageCategories objectAtIndex:indexPath.row];
@@ -81,6 +84,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
             
         }
+       
         cell.backgroundColor=[UIColor blackColor];
         cell.textLabel.text=[NSString stringWithFormat:@"Row %i",indexPath.row];
         return cell;
@@ -143,11 +147,42 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.view addSubview:secondTV];
-
-
+//    UITableViewCell * cell =[[UITableViewCell alloc]init];
+//    if (tableView==settingsTableView) {
+//
+//        if (indexPath.row==0 || indexPath.row==1 || indexPath.row==5) {
+//            [self.view addSubview:secondTV];
+//
+//        }
+//        else if (indexPath.row==2 || indexPath.row==3 || indexPath.row==4) {
+//            secondTV.hidden=YES;
+//        }
+//    }
+    if (indexPath.row==4) {
+        NSUInteger index = [[tableView indexPathsForVisibleRows] indexOfObject:indexPath];
+        
+        if (index != NSNotFound) {
+            UITableViewCell *cell = [[tableView visibleCells] objectAtIndex:index];
+            if ([cell accessoryType] == UITableViewCellAccessoryNone) {
+                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            } else {
+                [cell setAccessoryType:UITableViewCellAccessoryNone];
+            }
+        }
+    }
+  
+   
 }
-
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row==4) {
+        NSUInteger index = [[tableView indexPathsForVisibleRows] indexOfObject:indexPath];
+        if (index != NSNotFound) {
+            UITableViewCell *cell = [[tableView visibleCells] objectAtIndex:index];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+        }
+    }
+  
+}
 /*
 #pragma mark - Navigation
 

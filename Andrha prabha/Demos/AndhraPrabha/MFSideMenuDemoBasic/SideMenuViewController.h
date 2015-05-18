@@ -20,7 +20,7 @@
 
 @property (nonatomic,strong) NSString   * linkData;
 @property (nonatomic,strong) NSString   * tidData;
-
+@property int selectedCell;
 @property NSMutableIndexSet *expandedSections;
 @property int tidNews;
 @property (retain) NSIndexPath * selectedCellIndexPath;

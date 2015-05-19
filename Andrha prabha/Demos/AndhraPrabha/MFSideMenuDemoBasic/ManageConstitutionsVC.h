@@ -11,5 +11,5 @@
 @interface ManageConstitutionsVC : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView * constitutionTV;
-
+@property (nonatomic,strong) NSMutableArray *constitutionArrays;
 @end

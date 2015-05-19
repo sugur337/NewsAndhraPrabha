@@ -14,5 +14,7 @@
 @property (atomic,retain)       NSMutableArray  * manageCategories;
 @property (atomic,retain)       NSMutableArray  * subManageCategories;
 @property (nonatomic,strong)    UITableView * secondTV;
+@property (nonatomic,strong) NSMutableArray *constitutionArrays;
+
 
 @end

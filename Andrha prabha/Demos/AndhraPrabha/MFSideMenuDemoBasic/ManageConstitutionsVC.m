@@ -8,15 +8,17 @@
 
 #import "ManageConstitutionsVC.h"
 #import "M13Checkbox.h"
+#import "BuildMenuTree.h"
+#import "MenuItem.h"
 @interface ManageConstitutionsVC ()
 
 @end
 
 @implementation ManageConstitutionsVC
-@synthesize constitutionTV;
+@synthesize constitutionTV,constitutionArrays;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self constitutionsCallingArrays];
     self.view.backgroundColor = [UIColor purpleColor];
 
  
@@ -38,6 +40,21 @@
     
     
     // Do any additional setup after loading the view from its nib.
+}
+-(void)constitutionsCallingArrays
+{
+    BuildMenuTree * bMT=[[BuildMenuTree alloc]init];
+    
+    NSArray * jillaArrays = [bMT buildTreeFromJson];
+    constitutionArrays=[[NSMutableArray alloc]init];
+    for (MenuItem * menu in jillaArrays) {
+        if (menu.has_children) {
+            NSString * subJillaTitle =menu.linkTitle;
+            [constitutionArrays addObject:subJillaTitle];
+            NSLog(@"Managed menu linktitle:%@",menu.linkTitle);
+        }
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

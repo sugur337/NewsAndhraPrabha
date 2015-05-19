@@ -9,6 +9,8 @@
 #import "SettingViewController.h"
 #import "MFSideMenu.h"
 #import "ManageConstitutionsVC.h"
+#import "BuildMenuTree.h"
+#import "MenuItem.h"
 
 @interface SettingViewController ()
 
@@ -16,10 +18,11 @@
 
 @implementation SettingViewController
 @synthesize settingsTableView,manageCategories,subManageCategories;
-@synthesize secondTV;
+@synthesize secondTV,constitutionArrays;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self UIViewOfSecondTableView];
+    [self constitutionsCallingArrays];
     settingsTableView.delegate=self;
     settingsTableView.dataSource=self;
     secondTV.delegate=self;
@@ -42,7 +45,21 @@
 
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)constitutionsCallingArrays
+{
+    BuildMenuTree * bMT=[[BuildMenuTree alloc]init];
+    
+    NSArray * jillaArrays = [bMT buildTreeFromJson];
+    constitutionArrays=[[NSMutableArray alloc]init];
+    for (MenuItem * menu in jillaArrays) {
+        if (menu.has_children) {
+            NSString * subJillaTitle =menu.linkTitle;
+            [constitutionArrays addObject:subJillaTitle];
+            NSLog(@"Managed menu linktitle:%@",menu.linkTitle);
+        }
+        
+    }
+}
 -(void)UIViewOfSecondTableView
 {
     secondTV=[[UITableView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x+70, self.view.frame.origin.y+90,200, self.view.frame.size.height-120)];

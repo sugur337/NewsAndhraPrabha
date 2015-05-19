@@ -12,7 +12,7 @@
 @implementation SideMenuViewController
 @synthesize districtArray,expandedSections,selectedCellIndexPath;
 @synthesize apJillaArrays,apUniversities,tsUniversities,dictionary;
-@synthesize linkData,tidData,allTitlesArray,tsJillaArrays,jsjillaMlidArrays,apjillaMlidArrays;
+@synthesize linkData,tidData,allTitlesArray,tsJillaArrays,jsjillaMlidArrays,apjillaMlidArrays,selectedCell;
 #pragma mark -
 #pragma mark - UITableViewDataSource
 -(void)viewDidLoad{
@@ -258,11 +258,9 @@ if ([[dict objectForKey:@"plid"]isEqualToString:@"772"]) {
     demoController.rowID= indexPath.row;
     cell.textLabel.text = [[allTitlesArray objectAtIndex:indexPath.row] objectForKey:@"link_title"];
     
-    
     if ((indexPath.section==7&& indexPath.row==0)) {
         SettingViewController * sVC=[[SettingViewController alloc]init];
-        
-UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+        UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
         NSArray *controllers = [NSArray arrayWithObject:sVC];
         cell.textLabel.text=@"సెట్టింగ్స్";
         sVC.title=cell.textLabel.text;
